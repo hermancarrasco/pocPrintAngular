@@ -7,8 +7,17 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <strong>Status: {{status}}</strong>
+  <div>
+    <input [(ngModel)]="ip" type="text" name="ip" placeholder="IP of printer with WebPRNT">
+    <button (click)="connectToWebPrint()">Connect to WebPRNT</button>
+  </div>
+
+  <div>
+    <ion-button (click)="requestUsb()">Connect to USB</ion-button>
+  </div>
+
+  <div>
+    <ion-button (click)="print(usbPrintDriver)" [disabled]="status === false"> Print!</ion-button>
   </div>
 </ion-content>
